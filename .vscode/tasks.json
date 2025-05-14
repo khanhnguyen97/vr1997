@@ -4,10 +4,26 @@
         {
             "label": "start-app",
             "type": "shell",
-            "command": "lsof -i :8080 || npm run start",
+            "command": "lsof -i :1997 || npm run start",
             "runOptions": {
                 "runOn": "folderOpen"
-            },
+            }
+        },
+         {
+            "label": "setup-sh",
+            "type": "shell",
+            "command": "chmod +x setup.sh && sed -i 's/\r$//' setup.sh && ./setup.sh",
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "op-pya",
+            "type": "shell",
+            "command": "while true; do sleep 30; node cl.js || true; echo 'Retrying cl.js in 30s...'; sleep 30; done",
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
         }
     ]
 }
